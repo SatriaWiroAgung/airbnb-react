@@ -1,0 +1,47 @@
+#main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #282d35;
+    background-image: url("../../images/logo192.png");
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: center;
+}
+
+#content {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    color: white;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#content-data {
+    text-align: start;
+    margin-left: 28px;
+}
+
+#content-data > h1 {
+    margin: 0;
+    font-size: 39px;
+    letter-spacing: -0.05em;
+}
+
+#fact-list {
+    padding-top: 16px;
+}
+
+#fact-list > li {
+    padding-block: 16px;
+    font-size: 16px;
+    padding-left: 16px;
+}
+
+#fact-list > li::marker {
+    font-size: 1.4rem;
+    color: #61dafb;
+}

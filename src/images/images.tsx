@@ -1,0 +1,9 @@
+export const profilePicture = require("./profile-picture.jpg");
+export const facebookLogo = require("./facebook-logo.png");
+export const instagramLogo = require("./instagram-logo.png");
+export const githubLogo = require("./github-logo.png");
+export const linkedinLogo = require("./linkedin-logo.png");
+export const gmailLogo = require("./gmail-logo.png");
+export const airBnbLogo = require("./airbnb-logo.png");
+export const airBnbGrid = require("./airbnb-grid.png");
+export const starIcon= require("./star-icon.png");

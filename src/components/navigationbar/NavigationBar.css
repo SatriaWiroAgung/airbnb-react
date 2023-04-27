@@ -1,0 +1,39 @@
+.navigation-bar {
+    background-color: #21222a;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.primary-text-color {
+    color: #61dafb;
+}
+.secondary-text-color {
+    color: #deebf8;
+}
+
+h2 {
+    margin: 0;
+}
+
+#nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+#nav-logo > h2 {
+    padding: 0;
+    margin: 0;
+}
+
+#nav-react-logo {
+    margin: 0;
+    padding: 8px;
+    width: 26px;
+    height: fit-content;
+}
+
+.navigation-bar > h3 {
+    font-weight: 600;
+}
