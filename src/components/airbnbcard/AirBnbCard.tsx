@@ -5,11 +5,11 @@ import {
   Button,
   Card,
   CardActionArea,
+  CardActions,
   Stack,
   Typography,
 } from "@mui/material";
 import { Scaled } from "../../constants";
-import { starIcon } from "../../images/images";
 import AirBnbEvent from "../../models/AirBnbEvent";
 import AppTypography from "../AppTypography";
 
@@ -74,14 +74,6 @@ const AirBnbCard = (props: AirBnbCardProps) => {
             >
               {props.airBnbEvent.description}
             </AppTypography>
-            <Button
-              variant="text"
-              color="error"
-              startIcon={<DeleteIcon />}
-              onClick={() => props.onRemoveCard(props.airBnbEvent)}
-            >
-              Remove Item
-            </Button>
           </Stack>
         </Stack>
 
@@ -104,6 +96,16 @@ const AirBnbCard = (props: AirBnbCardProps) => {
           {props.airBnbEvent.status}
         </Typography>
       </CardActionArea>
+      <CardActions sx={{justifyContent: "center"}}>
+        <Button
+          variant="text"
+          color="error"
+          startIcon={<DeleteIcon />}
+          onClick={() => props.onRemoveCard(props.airBnbEvent)}
+        >
+          Remove Item
+        </Button>
+      </CardActions>
     </Card>
   );
 };
