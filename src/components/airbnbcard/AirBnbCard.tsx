@@ -22,7 +22,7 @@ const AirBnbCard = (props: AirBnbCardProps) => {
   return (
     <Card
       sx={{
-        width: "300px",
+        minWidth: "300px",
         height: "fit-content",
         borderRadius: "12px",
       }}
@@ -82,21 +82,21 @@ const AirBnbCard = (props: AirBnbCardProps) => {
             position: "absolute",
             top: 0,
             left: 0,
-            color: '#222222',
-            background : 'white',
-            textTransform: 'uppercase',
+            color: "#222222",
+            background: "white",
+            textTransform: "uppercase",
             margin: Scaled.px(12),
             paddingX: Scaled.px(8),
             paddingY: Scaled.px(4),
             fontSize: Scaled.rem(14),
             borderRadius: Scaled.px(4),
-            boxShadow: '0px 1px 5px 0.05rem grey'
+            boxShadow: "0px 1px 5px 0.05rem grey",
           }}
         >
           {props.airBnbEvent.status}
         </Typography>
       </CardActionArea>
-      <CardActions sx={{justifyContent: "center"}}>
+      <CardActions sx={{ justifyContent: "center" }}>
         <Button
           variant="text"
           color="error"

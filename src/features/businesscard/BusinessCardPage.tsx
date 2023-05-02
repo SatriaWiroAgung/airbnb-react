@@ -1,4 +1,15 @@
-import { Box, Button, Icon, Stack, ThemeProvider, Typography, createTheme, responsiveFontSizes, IconButton } from "@mui/material";
+import {
+  Box,
+  Button,
+  Icon,
+  IconButton,
+  Stack,
+  SvgIcon,
+  ThemeProvider,
+  Typography,
+  createTheme,
+  responsiveFontSizes,
+} from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { Scaled } from "../../constants";
 import {
@@ -9,6 +20,7 @@ import {
   linkedinLogo,
   profilePicture,
 } from "../../images/images";
+import { ReactComponent as LinkedInLogo } from "../../images/vectors/LinkedIn_icon.svg";
 import SocialMediaLink from "../../models/SocialMediaLink";
 import "./BusinessCardPage.css";
 
@@ -98,33 +110,37 @@ const businessCardTheme = createTheme({
 
 const gmailIcon = (
   <Icon>
-    <img 
-      src={gmailLogo}  
+    <img
+      src={gmailLogo}
       style={{
-        width: "100%"
-      }}></img>
+        width: "100%",
+      }}
+    ></img>
   </Icon>
-)
+);
 
 const linkedinIcon = (
   <Icon>
-    <img 
-      src={linkedinLogo}  
+    <img
+      src={linkedinLogo}
       style={{
-        width: "100%"
-      }}></img>
+        width: "100%",
+      }}
+    ></img>
   </Icon>
-)
+);
 
 export const BusinessCardPage = () => {
-  const socialMediaButtons: JSX.Element[] = [];
-  socialMediaLinks.forEach(function (value) {
-    socialMediaButtons.push(
-      <IconButton size="small">
+  const socialMediaButtons = socialMediaLinks.map((value, i) => {
+    return (
+      <IconButton
+        size="small"
+        key={i}
+        onClick={() => window.open(value.linkUrl)}
+      >
         <img
           src={value.logo}
           alt={value.type + " Logo"}
-          onClick={() => window.open(value.linkUrl)}
           style={{
             width: Scaled.px(40),
             height: "max-content",
@@ -154,49 +170,51 @@ export const BusinessCardPage = () => {
           alignItems={"center"}
           sx={{ backgroundColor: "#1A1B21" }}
         >
-          <Box 
+          <Box
             component={"img"}
             height={"35%"}
-            width={"100%"} 
+            width={"100%"}
             src={profilePicture}
             sx={{
-              objectFit: "cover"
-            }}/>
+              objectFit: "cover",
+            }}
+          />
 
-          <Typography 
+          <Typography
             color={"white"}
             fontSize={Scaled.px(25)}
             fontWeight={"bold"}
             paddingTop={Scaled.px(20)}
-            >
-              Satria Wiro Agung
+          >
+            Satria Wiro Agung
           </Typography>
 
           <Typography
             fontSize={Scaled.px(14)}
             paddingTop={Scaled.px(8)}
             color={"#F3BF99"}
-            >
-              Android Developer 
+          >
+            Android Developer
           </Typography>
 
           <Typography
             fontSize={Scaled.px(12)}
             paddingTop={Scaled.px(8)}
             color={"white"}
-            >
-              Jakarta, Indonesia
+          >
+            Jakarta, Indonesia
           </Typography>
 
-          <Stack 
+          <Stack
             direction={"row"}
             spacing={1}
             paddingTop={Scaled.px(32)}
             sx={{
-              width: "calc(100% - 80px)"
-            }}>
-            <Button 
-              startIcon={gmailIcon} 
+              width: "calc(100% - 80px)",
+            }}
+          >
+            <Button
+              startIcon={gmailIcon}
               href="https://www.google.com/?hl=ID"
               target="_blank"
               sx={{
@@ -206,97 +224,112 @@ export const BusinessCardPage = () => {
                 textTransform: "none",
                 fontWeight: "bold",
                 borderRadius: Scaled.px(8),
-                '&:hover': {
-                  backgroundColor:"#F3BF99",
+                "&:hover": {
+                  backgroundColor: "#F3BF99",
                   color: "white",
                   transition: "0.4s",
                 },
-                '&:active' : {
-                  backgroundColor:"#1A1B21",
+                "&:active": {
+                  backgroundColor: "#1A1B21",
                   color: "white",
-                  transition: "0.4s"
-                }
-              }}>
+                  transition: "0.4s",
+                },
+              }}
+            >
               Email
             </Button>
-          
-            <Button 
-              startIcon={linkedinIcon} 
+            <Button
+              startIcon={
+                <SvgIcon
+                  component={LinkedInLogo}
+                  width={20}
+                  height={20}
+                  sx={{ fontSize: 20 }}
+                  viewBox="0 0 72 72"
+                />
+              }
               href="/airbnb"
-              target="blank"
+              target="_blank"
               sx={{
+                lineHeight: "normal",
                 width: "100%",
                 backgroundColor: "white",
                 color: "black",
                 textTransform: "none",
                 fontWeight: "bold",
                 borderRadius: Scaled.px(8),
-                '&:hover': {
-                  backgroundColor:"#0e76a8",
+                "&:hover": {
+                  backgroundColor: "#0e76a8",
                   color: "white",
                   transition: "0.4s",
                 },
-                '&:active' : {
-                  backgroundColor:"#1A1B21",
+                "&:active": {
+                  backgroundColor: "#1A1B21",
                   color: "white",
-                  transition: "0.4s"
-                }
-              }}>
+                  transition: "0.4s",
+                },
+              }}
+            >
               AirBnb
             </Button>
           </Stack>
-          
+
           <Stack
             alignItems={"start"}
             margin={"auto"}
             sx={{
               width: "calc(100% - 80px)",
-            }}>
+            }}
+          >
             <Typography
               color={"white"}
               fontWeight={"bold"}
-              fontSize={Scaled.px(18)}>
+              fontSize={Scaled.px(18)}
+            >
               About
             </Typography>
             <Typography
               fontSize={Scaled.px(12)}
               paddingTop={Scaled.px(6)}
-              color={"#DCDCDC"}>
+              color={"#DCDCDC"}
+            >
               I am a frontend developer with a particular interest in making
               things simple and automating daily tasks. I try to keep up with
               security and best practices, and am always looking for new things
-              to learn. 
+              to learn.
             </Typography>
 
             <Typography
               color={"white"}
               marginTop={Scaled.px(40)}
               fontWeight={"bold"}
-              fontSize={Scaled.px(18)}>
+              fontSize={Scaled.px(18)}
+            >
               Interests
             </Typography>
             <Typography
               fontSize={Scaled.px(12)}
               paddingTop={Scaled.px(6)}
-              color={"#DCDCDC"}>
+              color={"#DCDCDC"}
+            >
               Food expert. Music scholar. Reader. Internet fanatic. Bacon buff.
               Entrepreneur. Travel geek. Pop culture ninja. Coffee fanatic.
             </Typography>
           </Stack>
 
-          <Stack 
-              width={"100%"}
-              height={"10%"}
-              direction={"row"}
-              justifyContent={"center"}
-              alignItems={"center"}
-              spacing={3}
-              sx={{
-                backgroundColor: "#161619"
-              }}>
-              {socialMediaButtons}
+          <Stack
+            width={"100%"}
+            height={"10%"}
+            direction={"row"}
+            justifyContent={"center"}
+            alignItems={"center"}
+            spacing={3}
+            sx={{
+              backgroundColor: "#161619",
+            }}
+          >
+            {socialMediaButtons}
           </Stack>
-
         </Stack>
       </Box>
     </ThemeProvider>
